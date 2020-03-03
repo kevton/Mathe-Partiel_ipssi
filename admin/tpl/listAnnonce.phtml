@@ -1,0 +1,21 @@
+<section class="table-responsive">
+    <table id="tableDonnee" class="table">
+        <thead>
+            <th>Photo</th>
+            <th>Titre</th>
+            <th>Description</th>
+            
+            <th></th>
+        </thead>
+        <tbody>
+            <?php foreach($annonces as $annonce):?>
+                <tr>
+                    <td><img width="200" src="../admin/uploads/annonces/<?=$annonce['photo1']?>"></td>
+                    <td><?=$annonce['titre']?></td>
+                    <td width="300"><?=$annonce['description']?></td>
+                    <td><a href="editAnnonce.php?id=<?=$annonce['id']?>"><i class="fas fa-edit"></i></a> <a href="delAnnonce.php?id=<?=$annonce['id']?>" data-toggle="modal" data-target="#delete"><i class="fas fa-trash-alt"></i></a></td>
+                </tr> 
+            <?php endforeach;?>
+        </tbody>
+    </table>
+</section>

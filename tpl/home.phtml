@@ -1,0 +1,54 @@
+
+    <button class="hamburger" style="-webkit-transform: rotate(45deg); 
+               -moz-transform: rotate(45deg); 
+                 -o-transform: rotate(45deg);
+                    transform: rotate(45deg);">&#9906;</button>
+                <button class="cross">&#735;</button>
+                <div class="menu">
+                        <ul>
+                          <a href="#"><li>LINK ONE</li></a>
+                          <a href="#"><li>LINK TWO</li></a>
+                          <a href="#"><li>LINK THREE</li></a>
+                          <a href="#"><li>LINK FOUR</li></a>
+                          <a href="#"><li>LINK FIVE</li></a>
+                        </ul>
+                </div> 
+    
+    <?php
+    function tronquer_texte($texte, $nbchar)
+    {
+        return (strlen($texte) > $nbchar ? substr(substr($texte,0,$nbchar),0,
+        strrpos(substr($texte,0,$nbchar)," "))." (...)" : $texte);
+    }
+     foreach($annonces as $key => $annonce):
+        
+        if($key%2):?>
+    
+        
+            <section>    
+                <img src="admin/uploads/annonces/<?=$annonce['photo1']?>" alt="photo annonce" />
+                <article class="from-left">
+                    <h2 class="post-title"><?=$annonce['titre']?></h2>
+                    <p class="post-description"><?=tronquer_texte($annonce['description'], 150)?></p>
+                    <form action="detailAnnonce.php" method="GET">
+                        <input type="hidden" name="id" id="idAnnonce" value="<?=$annonce['id']?>">
+                        <input type="submit" id="moreInfo" value=" En savoir plus ">
+                    </form>
+                </article><!--
+     --></section>    
+        
+        <?php ;else: ?>
+            <section>    
+                <img src="admin/uploads/annonces/<?=$annonce['photo1']?>" alt="photo annonce" />
+                <article class="from-right">
+                    <h2 class="post-title"><?=$annonce['titre']?></h2>
+                    <p class="post-description"><?=tronquer_texte($annonce['description'], 150)?></p>
+                    <form action="detailAnnonce.php" method="GET">
+                        <input type="hidden" name="id" id="idAnnonce" value="<?=$annonce['id']?>">
+                        <input type="submit" id="moreInfo" value=" En savoir plus ">
+                    </form>
+                </article> <!--
+
+            --></section>    
+        <?php ;endif; ?>
+    <?php endforeach;?>

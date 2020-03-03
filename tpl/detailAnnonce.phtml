@@ -1,0 +1,23 @@
+
+
+<input type='hidden' id='photo1' value='<?=$annonces['photo1']; ?>'>
+<input type='hidden' id='photo2' value='<?=$annonces['photo2']; ?>'>
+<input type='hidden' id='photo3' value='<?=$annonces['photo3']; ?>'>
+<input type='hidden' id='photo4' value='<?=$annonces['photo4']; ?>'>
+
+<h3><?=$annonces['titre']; ?></h3>
+<div id="detailAnnonce">
+    <button id='slider-preview'><i class="fas fa-chevron-left"></i></button>
+    <div id="slidBox">
+        <img class="imgDetail" src="admin/uploads/annonces/<?=$annonces['photo1'];?>" alt="Photo annonce" />
+    </div>
+    <button id='slider-next'><i class="fas fa-chevron-right"></i></button>
+</div>
+<div id="descriptionDetailAnnonce"><?=$annonces['description']; ?></div>
+
+
+
+
+
+
+<script src="vendor/js/caroussel.js"></script>

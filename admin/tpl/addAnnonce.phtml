@@ -1,0 +1,89 @@
+<?php if($erreur!=''): ?><div class="alert alert-danger" role="alert"><?=$erreur?></div><?php endif;?>
+<?php if(isset($values['id'])):?>
+	<form action="editAnnonce.php" method="POST" enctype="multipart/form-data">
+	<input type="hidden" name="id" value="<?=$values['id']?>">
+<?php else:?>
+	<form action="addAnnonce.php" method="POST" enctype="multipart/form-data">
+<?php endif;?>
+	<div class="form-group row">
+		<label for="titre" class="col-sm-2 col-form-label">Titre :</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" value="<?=$values['titre']?>" name="titre" id="titre">
+		</div>
+    </div>
+    <div class="form-group  row">
+		<label for="content" class="col-sm-2 col-form-label">Desription :</label>
+		<div class="col-sm-10">
+			<textarea class="form-control" name="content" id="content"><?=$values['content']?></textarea>
+		</div>
+	</div>
+	<!-- Upload photo 1 -->
+	<div class="form-group  row">
+		<label for="picture" class="col-sm-2 col-form-label">Photo 1:</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="file" value="" name="picture" id="picture">
+		</div>
+		<?php if(isset($values['photo']) && $values['photo'] != NULL):?>
+			<img width="70" src="<?=URL_BLOG.REP_UPLOAD.'articles/'.$values['photo']?>">
+			<input type="hidden" value="<?=$values['photo']?>" name="oldpicture">
+		<?php endif;?>
+    </div>
+<!-- Upload photo 2 -->
+	<div class="form-group  row">
+		<label for="picture2" class="col-sm-2 col-form-label">Photo 2:</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="file" value="" name="picture2" id="picture2">
+		</div>
+		<?php if(isset($values['photo2']) && $values['photo2'] != NULL):?>
+			<img width="70" src="<?=URL_BLOG.REP_UPLOAD.'articles/'.$values['photo2']?>">
+			<input type="hidden" value="<?=$values['photo2']?>" name="oldpicture">
+		<?php endif;?>
+    </div>
+<!-- Upload photo 3 -->
+	<div class="form-group  row">
+		<label for="picture3" class="col-sm-2 col-form-label">Photo 3:</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="file" value="" name="picture3" id="picture3">
+		</div>
+		<?php if(isset($values['photo3']) && $values['photo3'] != NULL):?>
+			<img width="70" src="<?=URL_BLOG.REP_UPLOAD.'articles/'.$values['photo3']?>">
+			<input type="hidden" value="<?=$values['photo3']?>" name="oldpicture">
+		<?php endif;?>
+    </div>
+<!-- Upload photo 4 -->
+	<div class="form-group  row">
+		<label for="picture4" class="col-sm-2 col-form-label">Photo 4:</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="file" value="" name="picture4" id="picture4">
+		</div>
+		<?php if(isset($values['photo4']) && $values['photo4'] != NULL):?>
+			<img width="70" src="<?=URL_BLOG.REP_UPLOAD.'articles/'.$values['photo4']?>">
+			<input type="hidden" value="<?=$values['photo4']?>" name="oldpicture">
+		<?php endif;?>
+    </div>
+
+    
+	
+    
+	
+	<input type="submit" value="Enregistrer" class="btn btn-default">
+	<input type="reset" value="Réinitialiser" class="btn btn-default">
+</form>
+
+  <script>
+    tinymce.init({
+    selector: 'textarea',
+    height: 500,
+    menubar: false,
+    plugins: [
+        'advlist autolink lists link image charmap print preview anchor textcolor',
+        'searchreplace visualblocks code fullscreen',
+        'insertdatetime media table contextmenu paste code help wordcount'
+    ],
+    toolbar: 'insert | undo redo |  formatselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+    content_css: [
+        '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+        '//www.tinymce.com/css/codepen.min.css']
+    });
+  </script>
+
